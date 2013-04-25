@@ -5,13 +5,8 @@ class SearchForm
   extend ActiveModel::Naming
 
   attr_accessor :name
-  #attr_accessor :latitude, :longitude
-  #attr_accessor :bedroom_count
 
-	#validates :bedroom_count, :presence => true
   validates :name, :presence => true
-
-	#validate :correct_position
 
   validate :exists_property_with_that_name,  :unless => lambda { |s| s.name.blank? }
 
@@ -26,13 +21,6 @@ class SearchForm
       errors.add(:base, 'Sorry we cant find that property in our database')      
     end
   end
-
-	#def correct_position
-	#	# Validations fails if one of the is filled and the other is not
- 	#	if (latitude && longitude.blank?) || (latitude.blank? && longitude)
-  #    errors.add(:base, 'Invalid location')      
-  #  end
-	#end
 
   def similar
     origin_property = Property.where(:name => name).first
