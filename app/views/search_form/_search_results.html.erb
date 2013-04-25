@@ -1,0 +1,19 @@
+<div class="container ">
+	<div class="row">
+		<div class="span8 offset2 well ">
+			<legend>Found <%= pluralize(@similar_properties.count, 'result') %></legend>
+			<% @similar_properties.each do |distance, property| %>
+				<div class="span6 well white">
+					<div class="row">
+						<div class="span1"><a href="#" class="thumbnail"> <%= image_tag("house.png") %></a></div>
+						<div class="span3">							
+				      <cp><strong><%= property.name %></strong></p>
+				      <p><%= distance %> kms </p>
+							<span class=" badge badge-warning">Rent</span>
+						</div>
+					</div>
+				</div>
+			<% end %>				
+		</div>
+	</div>
+</div>

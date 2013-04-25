@@ -1,0 +1,22 @@
+<p></p>
+
+<div class="container">
+	<div class="row">
+		<div class="span8 offset2 well">
+			<legend>Search properties in near the property that you want</legend>
+
+				<%= render :partial => "errors" if @errors %>
+
+				<%= form_for @search_form, :url => {:controller => 'search_form', :action => 'create'} do |f| %>
+					<div class="input-prepend">
+						<span class="add-on"><i class="icon-search"></i></span>
+						<%= f.text_field :name, :placeholder => "Search...", :class => "span4" %><br />
+					</div>
+			<br>
+  				<%= f.submit "Go!", :class => "btn btn-info " %>
+			<% end %>  
+		</div>
+	</div>
+</div>
+
+<%= render :partial => "search_results" if @similar_properties %>
