@@ -6,7 +6,7 @@ FactoryGirl.define do
     latitude "51.523778"
     longitude "-0.013333"
   end
-
+  
   factory :search_form do 
   	name 'some room'
   end
